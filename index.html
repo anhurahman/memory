@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>আনহু রহমান | জান্নাতের চিরসবুজ ফুল</title>
+    <!-- SolaimanLipi Font & Elegant Serif -->
+    <link href="https://fonts.maateen.me/solaiman-lipi/font.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --emerald: #1e5a3a;
+            --gold: #c2a15b;
+            --cream: #fef9ef;
+            --deep: #2d3a2b;
+            --light-sand: #fcf6ea;
+        }
+
+        body {
+            background: var(--cream);
+            background-image: radial-gradient(circle at 15% 30%, rgba(194,161,91,0.06) 1.5%, transparent 2%),
+                              radial-gradient(circle at 85% 70%, rgba(30,90,58,0.04) 2%, transparent 2.2%);
+            background-size: 32px 32px, 38px 38px;
+            font-family: 'SolaimanLipi', 'Times New Roman', serif;
+            color: #34281c;
+            display: flex;
+            justify-content: center;
+            padding: 2rem 1rem 3rem;
+        }
+
+        .memorial-wrapper {
+            max-width: 980px;
+            width: 100%;
+            background: rgba(255, 251, 242, 0.92);
+            border-radius: 2rem;
+            box-shadow: 0 30px 50px -20px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,250,225,0.8);
+            padding: 2rem 1.8rem 2.5rem;
+            transition: all 0.2s;
+        }
+
+        /* ইসলামিক হেডার */
+        .noble-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            border-bottom: 2px solid var(--gold);
+            padding-bottom: 0.8rem;
+            margin-bottom: 1.8rem;
+        }
+        .bismillah {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--emerald);
+            font-family: 'Amiri', serif;
+        }
+        .dua-symbol {
+            background: #fff4e6;
+            padding: 0.3rem 1rem;
+            border-radius: 50px;
+            font-size: 1.3rem;
+        }
+
+        /* লাইভ ঘড়ি */
+        .clock-elegant {
+            background: white;
+            border-radius: 3rem;
+            padding: 0.8rem 1rem;
+            text-align: center;
+            border: 1px solid var(--gold);
+            margin: 1rem 0 1.8rem;
+        }
+        #bangla-date {
+            font-size: 1rem;
+            color: #8b7652;
+        }
+        #live-time {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--emerald);
+            font-family: monospace;
+            letter-spacing: 2px;
+        }
+
+        /* কবিতা + বাণী ব্লক */
+        .elegy-block {
+            text-align: center;
+            font-size: 1.3rem;
+            line-height: 2rem;
+            color: #2b5235;
+            border-top: 1px dashed var(--gold);
+            border-bottom: 1px dashed var(--gold);
+            padding: 1.5rem 0;
+            margin: 1rem 0;
+        }
+
+        .message-garden {
+            background: #fffcf4;
+            border-radius: 1.8rem;
+            padding: 1.3rem;
+            margin: 1.3rem 0;
+            border-left: 5px solid var(--gold);
+        }
+        .message-garden p {
+            margin-bottom: 0.8rem;
+            font-size: 1rem;
+            line-height: 1.65;
+            color: #4c3a28;
+        }
+
+        /* প্রধান কাউন্টার (বছর, মাস, দিন, ঘণ্টা, মিনিট, সেকেন্ড) */
+        .missing-counter {
+            background: linear-gradient(125deg, #ffffff, #fef7ea);
+            border-radius: 2rem;
+            padding: 1.8rem;
+            margin: 2rem 0;
+            text-align: center;
+            border: 1px solid rgba(194,161,91,0.3);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.02);
+        }
+        .counter-title {
+            font-size: 0.8rem;
+            letter-spacing: 3px;
+            color: var(--gold);
+            text-transform: uppercase;
+        }
+        #absense-timer {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-top: 0.6rem;
+            color: #2a411f;
+        }
+        .time-num {
+            color: var(--emerald);
+            font-size: 1.6rem;
+            font-weight: 800;
+            display: inline-block;
+            margin: 0 0.2rem;
+        }
+
+        /* বার্ষিকী ডুয়েল */
+        .anniversary-row {
+            display: flex;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        .anniv-card {
+            flex: 1;
+            background: #fffef7;
+            border-radius: 1.3rem;
+            padding: 1rem;
+            text-align: center;
+            border: 1px solid #e5d7c2;
+        }
+        .anniv-label {
+            font-size: 0.7rem;
+            color: #b9955a;
+        }
+        .anniv-number {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--emerald);
+        }
+
+        /* ছবি ফ্রেম */
+        .landscape-frame {
+            width: 100%;
+            aspect-ratio: 1.414 / 1;
+            background: #e8ddcd;
+            border: 6px double var(--gold);
+            border-radius: 1rem;
+            overflow: hidden;
+            margin: 2rem 0 1rem;
+        }
+        .landscape-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .four-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0.8rem;
+            margin: 1.5rem 0 2rem;
+        }
+        .four-grid img {
+            width: 100%;
+            aspect-ratio: 1/1;
+            object-fit: cover;
+            border-radius: 1rem;
+            border: 1px solid var(--gold);
+        }
+
+        /* তথ্য প্যানেল */
+        .info-twins {
+            display: flex;
+            gap: 1.2rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+        .info-card {
+            background: white;
+            padding: 1rem 1.2rem;
+            border-radius: 1.2rem;
+            flex: 1;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+            border-bottom: 2px solid var(--gold);
+        }
+        .info-card h4 {
+            color: var(--emerald);
+            border-left: 3px solid var(--gold);
+            padding-left: 0.7rem;
+            margin-bottom: 0.8rem;
+        }
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.3rem 0;
+            font-size: 0.9rem;
+            border-bottom: 1px dotted #efe2cf;
+        }
+
+        /* ওয়াজ ও নসিহত সেকশন (সমৃদ্ধ) */
+        .waz-master {
+            background: #fdf7ed;
+            border-radius: 1.8rem;
+            padding: 1.8rem;
+            margin: 2rem 0;
+        }
+        .waz-title {
+            font-size: 1.5rem;
+            color: var(--emerald);
+            border-right: 4px solid var(--gold);
+            padding-right: 1rem;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+        .waz-content {
+            line-height: 1.8;
+            text-align: justify;
+        }
+        .waz-content p {
+            margin-bottom: 1rem;
+        }
+        .hadith-quote {
+            background: #fff3e3;
+            padding: 0.8rem;
+            border-radius: 1rem;
+            margin: 1rem 0;
+            font-style: normal;
+        }
+
+        .parents-heart {
+            text-align: center;
+            background: #f5ede0;
+            border-radius: 2rem;
+            padding: 1.3rem;
+            margin: 1.8rem 0;
+        }
+        .final-ayah {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--gold);
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: var(--emerald);
+        }
+    </style>
+</head>
+<body>
+<div class="memorial-wrapper">
+    
+    <div class="noble-header">
+        <div class="dua-symbol">🕋</div>
+        <div class="bismillah">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+        <div class="dua-symbol">🕌</div>
+    </div>
+
+    <!-- লাইভ সময় -->
+    <div class="clock-elegant">
+        <div id="bangla-date"></div>
+        <div id="live-time">--:--:--</div>
+    </div>
+
+    <!-- মূল কবিতা (নং ৫) -->
+    <div class="elegy-block">
+        “যে ফুল না ফুটতেই ঝরে গেল পৃথিবীর ধুলিকণায়,<br> সে সুবাস ছড়াবে আজ জান্নাতের বাগিচায়।”
+    </div>
+
+    <!-- ১ নম্বর উক্তি -->
+    <div class="message-garden">
+        <p>💔 “তোমাকে ছুঁতে না পারার হাহাকার আমাদের আজীবন থাকবে, কিন্তু আমাদের হৃদয়ে তুমি অমর হয়ে রইবে আনহু রহমান।” 💔</p>
+    </div>
+
+    <!-- কাউন্টার : আমাদের মাঝে নেই আজ (বছর, মাস, দিন, ঘণ্টা, মিনিট, সেকেন্ড) -->
+    <div class="missing-counter">
+        <div class="counter-title">আমাদের মাঝে নেই আজ</div>
+        <div id="absense-timer">গণনা চলছে...</div>
+    </div>
+
+    <!-- বার্ষিকী ট্র্যাকার -->
+    <div class="anniversary-row">
+        <div class="anniv-card">
+            <div class="anniv-label">অতিক্রান্ত মৃত্যুবার্ষিকী</div>
+            <div class="anniv-number" id="passed-anniv">০ টি</div>
+        </div>
+        <div class="anniv-card">
+            <div class="anniv-label">পরবর্তী মৃত্যুবার্ষিকী বাকি</div>
+            <div class="anniv-number" id="next-anniv-countdown">-- দিন</div>
+        </div>
+    </div>
+
+    <!-- বড় ছবি (A4-R landscape) placeholder -->
+    <div class="landscape-frame">
+        <img src="images/big-photo.jpg" alt="আনহু রহমান">
+    </div>
+    <div class="four-grid">
+        <img src="images/small-1.jpg" alt="ছবি ১">
+        <img src="images/small-2.jpg" alt="ছবি ২">
+        <img src="images/small-3.jpg" alt="ছবি ৩">
+        <img src="images/small-4.jpg" alt="ছবি ৪">
+    </div>
+
+    <!-- ২,৩,৬,৭,৮,৯,১০ নং বাণী একসাথে -->
+    <div class="message-garden">
+        <p>“অনাগত পৃথিবীর মায়ায় তুমি এলে না, রয়ে গেলে চিরদিনের এক অপূর্ণ ভালোবাসা হয়ে।”</p>
+        <p>পার্থিব এই পৃথিবীতে তোমার সফর ছিল মায়ের জঠর পর্যন্তই। মহান আল্লাহ তোমাকে জান্নাতুল ফেরদাউসের মেহমান হিসেবে কবুল করুন।</p>
+        <p>“তুমি এই পৃথিবীর ধুলিকণায় মাখতে পারোনি শরীর, তাই হয়তো মহান রব তোমাকে জান্নাতের ফুলের সুবাসে রাঙিয়ে দিয়েছেন। সেখানে তুমি শান্তিতে থেকো, সোনা।”</p>
+        <p>“আলহামদুলিল্লাহ, আল্লাহ তোমাকে এই নশ্বর পৃথিবীর কষ্ট থেকে মুক্ত রেখে নিজের সান্নিধ্যে ডেকে নিয়েছেন। সেখানে আমাদের সবার জন্য অপেক্ষা করো।”</p>
+        <p>“তুমি জান্নাতের পাখির মতো ডানা মেলে মহান রবের সান্নিধ্যে উড়ে গেছ। সেখানে মহান আল্লাহ তোমাকে শান্তিতে এবং নিরাপদে রাখুন।”</p>
+        <p>“মহান আল্লাহর আমানত মহান আল্লাহর কাছে ফিরে গেছে। সেখানে আমাদের এই ছোট্ট জান্নাতীকে মহান আল্লাহ তাঁর অনুগ্রহে ঢেকে দিন এবং আমাদের জন্য সুপারিশকারী করুন।”</p>
+        <p>“এই পৃথিবী অনেক কঠিন আর তুমি ছিলে অনেক কোমল, তাই আল্লাহ তাঁর প্রিয় জান্নাতে নিয়ে গেছেন। ইনশাআল্লাহ, আখেরাতে আমরা আবার মিলিত হব।”</p>
+    </div>
+
+    <!-- তথ্য প্যানেল (আগমনী + বিদায়) -->
+    <div class="info-twins">
+        <div class="info-card">
+            <h4>🌸 আগমনী বার্তা 🌸</h4>
+            <div class="info-row"><span>ইংরেজি তারিখ</span><span>১০ আগস্ট ২০২৫</span></div>
+            <div class="info-row"><span>বাংলা তারিখ</span><span>২৬শে শ্রাবণ, ১৪৩২</span></div>
+            <div class="info-row"><span>আরবি তারিখ</span><span>১৫ই সফর, ১৪৪৭ হিজরি</span></div>
+            <div class="info-row"><span>সময়</span><span>সকাল ১০:১৭ মিনিট</span></div>
+            <div class="info-row"><span>বার</span><span>রবিবার</span></div>
+        </div>
+        <div class="info-card">
+            <h4>🌸 বিদায় বেলা 🌸</h4>
+            <div class="info-row"><span>ইংরেজি তারিখ</span><span>২৯ এপ্রিল ২০২৬ ইং</span></div>
+            <div class="info-row"><span>বাংলা তারিখ</span><span>১৬ই বৈশাখ, ১৪৩৩ বঙ্গাব্দ</span></div>
+            <div class="info-row"><span>আরবি তারিখ</span><span>১১ই জিলকদ, ১৪৪৭ হিজরি</span></div>
+            <div class="info-row"><span>সময়</span><span>দুপুর ২:৪৬ মিনিট</span></div>
+	    <div class="info-row"><span>বার ও ওজন</span><span>বুধবার, ৩ কেজি ১০০ গ্রাম</span></div>
+        </div>
+    </div>
+
+    <!-- শিক্ষা ও সবরের স্বর্ণালী বার্তা (ওয়াজ ও বাইতুল হামদ) -->
+    <div class="waz-master">
+        <div class="waz-title">সন্তান বিয়োগে ধৈর্যের প্রতিদান ও জান্নাতের সুসংবাদ</div>
+        <div class="waz-content">
+            <p><strong>হামদ ও সানা:</strong> সকল প্রশংসা মহান রাব্বুল আলামীনের, যিনি জীবন ও মৃত্যুর মালিক। দরুদ ও সালাম বর্ষিত হোক মানবতার মুক্তির দূত প্রিয় নবী মুহাম্মদ (সা.)-এর ওপর।</p>
+            <p><strong>পরীক্ষা ও ধৈর্য:</strong> হে শোকাতুর মুমিন ভাই ও বোনেরা, দুনিয়া হলো মুমিনের জন্য পরীক্ষাগার। মহান আল্লাহ পবিত্র কুরআনে এরশাদ করেছেন, <em>“আমি অবশ্যই তোমাদের পরীক্ষা করব কিছুটা ভয়, ক্ষুধা, মাল ও জানের ক্ষতি এবং ফল-ফসলের বিনষ্টের মাধ্যমে। তবে সুসংবাদ দাও ধৈর্যশীলদের।”</em> (সূরা বাকারা: ১৫৫)</p>
+            <p><strong>জান্নাতের প্রজাপতি:</strong> আপনার কলিজার টুকরো আনহু রহমান এই দুনিয়ার কোনো পঙ্কিলতা স্পর্শ করার আগেই জান্নাতের পাখি হয়ে উড়ে গেছে। হাদিস শরীফে এসেছে, ঈমানদারদের যেসব সন্তান ছোটবেলায় মারা যায়, তারা জান্নাতে হযরত ইব্রাহিম (আ.)-এর তত্ত্বাবধানে থাকে। কিয়ামতের কঠিন ময়দানে এই শিশুরাই তাদের পিতা-মাতার হাত ধরে জান্নাতে নিয়ে যাওয়ার জন্য আল্লাহর কাছে বায়না ধরবে।</p>
+            <div class="hadith-quote">
+                🌟 <strong>বাইতুল হামদ বা প্রশংসার ঘর:</strong> রাসূলুল্লাহ (সা.) বলেছেন, যখন কোনো বান্দার সন্তান মারা যায় এবং সে সবর করে, আল্লাহ ফেরেশতাদের নির্দেশ দেন, “জান্নাতে আমার এই বান্দার জন্য একটি ঘর নির্মাণ করো এবং তার নাম রাখো ‘বাইতুল হামদ’ (প্রশংসার ঘর)।” (তিরমিজি)
+            </div>
+            <p><strong>আমানত ও প্রত্যাবর্তন:</strong> “আমরা তো আল্লাহরই এবং নিশ্চিতভাবে তাঁরই দিকে আমাদের প্রত্যাবর্তন।” আপনার আদরের আনহু রহমান আল্লাহর পক্ষ থেকে আসা এক পবিত্র আমানত ছিল, যা তিনি অত্যন্ত ভালোবাসতেন বলেই তাঁর কাছে ফিরিয়ে নিয়েছেন।</p>
+            <p><strong>জান্নাতের ফুল:</strong> দুনিয়ার ধূলিময় পরিবেশে আসার আগেই আল্লাহ তাকে জান্নাতের পবিত্রতম বাগিচায় স্থান দিয়েছেন। সেখানে সে ইব্রাহিম (আ.)-এর তত্ত্বাবধানে সুরক্ষিত আছে এবং কিয়ামতের দিন তার পিতা-মাতাকে নিয়ে জান্নাতে প্রবেশের জন্য আল্লাহর কাছে জেদ করবে।</p>
+            <p><strong>শোকের বিনিময়ে জান্নাত:</strong> যে ব্যক্তি তার প্রিয় সন্তানকে হারিয়ে সবর ধারণ করে এবং আল্লাহর ওপর সন্তুষ্ট থাকে, আল্লাহ তার জন্য জান্নাতে 'বাইতুল হামদ' নির্মাণ করেন।</p>
+            <p><strong>সান্ত্বনা:</strong> বাহ্যিক দৃষ্টিতে এটি একটি বিচ্ছেদ মনে হলেও, মুমিনের কাছে এটি একটি বিনিয়োগ। আপনি আপনার আমানতকে আল্লাহর কাছে গচ্ছিত রেখেছেন। দুনিয়ার এই ক্ষণস্থায়ী জীবনে তাকে না পেলেও, ইনশাআল্লাহ জান্নাতের চিরস্থায়ী সুখের নীড়ে আপনারা আবার মিলিত হবেন।</p>
+            <p>হে আল্লাহ! আপনি আনহু রহমান-কে জান্নাতে উচ্চ মাকাম দান করুন এবং তার পিতা মোঃ হাফিজুর রহমান ও মাতা মোছাঃ দিলারা খাতুন-কে উত্তম ধৈর্য ধারণ করার তৌফিক দান করুন। আমীন।</p>
+        </div>
+    </div>
+
+    <!-- শোকার্ত পিতা-মাতা -->
+    <div class="parents-heart">
+        <div style="color: #b28b5e;">শোকার্ত পিতা-মাতা</div>
+        <div style="font-size: 1.5rem; font-weight: 600;">মোঃ হাফিজুর রহমান ও মোছাঃ দিলারা খাতুন</div>
+    </div>
+
+    <!-- সমাপনী ইন্নালিল্লাহ -->
+    <div class="final-ayah">
+        “ إِنَّا لِلَّهِ وَإِنَّا إِلَيْهِ رَاجِعُونَ ” <br>
+        <span style="font-size: 0.9rem;">নিশ্চয়ই আমরা আল্লাহর জন্য এবং নিশ্চয়ই আমরা তাঁরই নিকট প্রত্যাবর্তনকারী।</span><br>
+        <span style="font-size: 0.75rem;">আনহু রহমান • জান্নাতুল ফেরদাউসের মেহমান</span>
+    </div>
+</div>
+
+<script>
+    (function() {
+        // মৃত্যুর সঠিক মুহূর্ত: ২৯ এপ্রিল ২০২৬, ১৪:৪৬
+        const deathMoment = new Date(2026, 3, 29, 14, 46, 0); // মাস 3 = এপ্রিল
+
+        const banglaDateEl = document.getElementById('bangla-date');
+        const liveTimeEl = document.getElementById('live-time');
+        const absenseTimerEl = document.getElementById('absense-timer');
+        const passedAnnivEl = document.getElementById('passed-anniv');
+        const nextAnnivCountdown = document.getElementById('next-anniv-countdown');
+
+        function updateLiveClock() {
+            const now = new Date();
+            const dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            banglaDateEl.innerText = now.toLocaleDateString('bn-BD', dateOptions);
+            liveTimeEl.innerText = now.toLocaleTimeString('bn-BD', { hour12: true, hour: '2-digit', minute:'2-digit', second:'2-digit' });
+        }
+
+        // সঠিক ডিফারেন্স (বছর, মাস, দিন, ঘণ্টা, মিনিট, সেকেন্ড)
+        function getPreciseDiff(from, to) {
+            let years = to.getFullYear() - from.getFullYear();
+            let months = to.getMonth() - from.getMonth();
+            let days = to.getDate() - from.getDate();
+            let hours = to.getHours() - from.getHours();
+            let minutes = to.getMinutes() - from.getMinutes();
+            let seconds = to.getSeconds() - from.getSeconds();
+
+            if (seconds < 0) { seconds += 60; minutes--; }
+            if (minutes < 0) { minutes += 60; hours--; }
+            if (hours < 0) { hours += 24; days--; }
+            if (days < 0) {
+                let lastMonthDate = new Date(to.getFullYear(), to.getMonth(), 0);
+                days += lastMonthDate.getDate();
+                months--;
+            }
+            if (months < 0) { months += 12; years--; }
+            return { years, months, days, hours, minutes, seconds };
+        }
+
+        function getPassedAnniversary(now, death) {
+            let currentYear = now.getFullYear();
+            let thisYearAnn = new Date(currentYear, death.getMonth(), death.getDate(), death.getHours(), death.getMinutes(), death.getSeconds());
+            let passed = currentYear - death.getFullYear();
+            if (now < thisYearAnn) passed--;
+            return passed < 0 ? 0 : passed;
+        }
+
+        function getNextAnniversaryRemaining(now, death) {
+            let next = new Date(now.getFullYear(), death.getMonth(), death.getDate(), death.getHours(), death.getMinutes(), death.getSeconds());
+            if (now > next) next.setFullYear(now.getFullYear() + 1);
+            let diffMs = next - now;
+            if (diffMs <= 0) return "০ দিন";
+            const totalSec = Math.floor(diffMs / 1000);
+            const days = Math.floor(totalSec / 86400);
+            const hours = Math.floor((totalSec % 86400) / 3600);
+            const minutes = Math.floor((totalSec % 3600) / 60);
+            const seconds = totalSec % 60;
+            return `${days} দিন, ${hours} ঘণ্টা, ${minutes} মিনিট, ${seconds} সেকেন্ড`;
+        }
+
+        function renderAll() {
+            const now = new Date();
+            updateLiveClock();
+
+            // অনুপস্থিতি কাল
+            if (now < deathMoment) {
+                absenseTimerEl.innerHTML = `<span style="color:#b28b5e;">আল্লাহর ইচ্ছায় আগমনী অপেক্ষা...</span>`;
+            } else {
+                const diff = getPreciseDiff(deathMoment, now);
+                absenseTimerEl.innerHTML = `<span class="time-num">${diff.years}</span> বছর <span class="time-num">${diff.months}</span> মাস 
+                                            <span class="time-num">${diff.days}</span> দিন <br> 
+                                            <span class="time-num">${diff.hours}</span> ঘণ্টা <span class="time-num">${diff.minutes}</span> মিনিট 
+                                            <span class="time-num">${diff.seconds}</span> সেকেন্ড`;
+            }
+
+            // অতিক্রান্ত বার্ষিকী
+            if (now >= deathMoment) {
+                let passed = getPassedAnniversary(now, deathMoment);
+                passedAnnivEl.innerText = passed + " টি";
+            } else {
+                passedAnnivEl.innerText = "০ টি";
+            }
+
+            // পরবর্তী বার্ষিকী কাউন্টডাউন
+            if (now >= deathMoment) {
+                nextAnnivCountdown.innerText = getNextAnniversaryRemaining(now, deathMoment);
+            } else {
+                let firstAnnDate = new Date(deathMoment.getFullYear(), deathMoment.getMonth(), deathMoment.getDate(), deathMoment.getHours(), deathMoment.getMinutes());
+                let diffMs = firstAnnDate - now;
+                if (diffMs > 0) {
+                    const d = Math.floor(diffMs / 86400000);
+                    const h = Math.floor((diffMs % 86400000) / 3600000);
+                    const m = Math.floor((diffMs % 3600000) / 60000);
+                    const s = Math.floor((diffMs % 60000) / 1000);
+                    nextAnnivCountdown.innerText = `${d} দিন, ${h}:${m}:${s}`;
+                } else {
+                    nextAnnivCountdown.innerText = "আসন্ন";
+                }
+            }
+        }
+
+        setInterval(renderAll, 1000);
+        renderAll();
+        console.log("স্মৃতি সংরক্ষিত। আপনার ছবি পরিবর্তন করুন বাস্তব লিংক দিয়ে।");
+    })();
+</script>
+</body>
+</html>
