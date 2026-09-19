@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>আনহু রহমান | জান্নাতের চিরসবুজ ফুল</title>
+    
+    <!-- Google Fonts for Bengali Typography & Arabic Calligraphy -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Serif+Bengali:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --emerald: #1b4d3e;
+            --emerald-light: #2c6e59;
+            --gold: #c5a059;
+            --gold-light: #e5c98d;
+            --cream: #faf6ee;
+            --deep: #222b21;
+            --card-bg: rgba(255, 253, 248, 0.94);
+            --shadow: 0 20px 40px -15px rgba(27, 77, 62, 0.12);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--cream);
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(197, 160, 89, 0.08) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(27, 77, 62, 0.06) 0%, transparent 20%);
+            font-family: 'Noto Serif Bengali', serif;
+            color: #382c20;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 1.5rem 0.8rem 0rem;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Fullscreen Overlay Canvas for Petals & Flying Butterflies */
+        #fx-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        /* Main Container */
+        .memorial-wrapper {
+            max-width: 960px;
+            width: 100%;
+            background: var(--card-bg);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-radius: 2rem;
+            border: 1px solid rgba(197, 160, 89, 0.3);
+            box-shadow: var(--shadow);
+            padding: 2.5rem 2rem 3rem;
+            position: relative;
+            z-index: 2;
+            margin-bottom: 0;
+        }
+
+        .noble-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            border-bottom: 2px dashed var(--gold);
+            padding-bottom: 1.2rem;
+            margin-bottom: 1.8rem;
+        }
+        
+        .bismillah {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--emerald);
+            font-family: 'Amiri', serif;
+            text-align: center;
+            flex: 1;
+            line-height: 1.4;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 4px rgba(197, 160, 89, 0.15);
+        }
+
+        .dua-symbol {
+            background: #fbf3e6;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            border: 1px solid var(--gold-light);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+        }
+
+        /* Clock Section */
+        .clock-elegant {
+            background: linear-gradient(135deg, #ffffff, #fffaf2);
+            border-radius: 1.5rem;
+            padding: 1rem 1.5rem;
+            text-align: center;
+            border: 1px solid var(--gold);
+            margin: 1rem 0 2rem;
+            box-shadow: 0 8px 20px rgba(197, 160, 89, 0.08);
+        }
+        
+        #bangla-date {
+            font-size: 1.05rem;
+            color: #8c734b;
+            font-weight: 500;
+        }
+
+        #live-time {
+            font-size: 2.6rem;
+            font-weight: 700;
+            color: var(--emerald);
+            letter-spacing: 1.5px;
+            margin-top: 0.2rem;
+        }
+
+        /* Poetry Block */
+        .elegy-block {
+            text-align: center;
+            font-size: 1.35rem;
+            line-height: 2.2rem;
+            color: var(--emerald);
+            font-weight: 600;
+            border-top: 1px dashed var(--gold);
+            border-bottom: 1px dashed var(--gold);
+            padding: 1.6rem 1rem;
+            margin: 1.5rem 0;
+            background: rgba(197, 160, 89, 0.04);
+            border-radius: 1rem;
+        }
+
+        /* Message Box */
+        .message-garden {
+            background: #fffdf8;
+            border-radius: 1.5rem;
+            padding: 1.6rem;
+            margin: 1.5rem 0;
+            border-left: 5px solid var(--gold);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.02);
+            border-top: 1px solid #f5ebd8;
+            border-right: 1px solid #f5ebd8;
+            border-bottom: 1px solid #f5ebd8;
+        }
+
+        .message-garden p {
+            margin-bottom: 1rem;
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: #4a3c2c;
+        }
+
+        .message-garden p:last-child {
+            margin-bottom: 0;
+        }
+
+        .missing-counter {
+            background: linear-gradient(135deg, #ffffff, #faf3e5);
+            border-radius: 1.8rem;
+            padding: 2rem 1.5rem;
+            margin: 2rem 0;
+            text-align: center;
+            border: 1px solid var(--gold);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.03);
+        }
+
+        .counter-title {
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            color: var(--gold);
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        #absense-timer {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-top: 0.8rem;
+            color: #2b3a27;
+            line-height: 2;
+        }
+
+        .time-num {
+            color: var(--emerald);
+            font-size: 1.8rem;
+            font-weight: 700;
+            display: inline-block;
+            margin: 0 0.2rem;
+            background: rgba(27, 77, 62, 0.06);
+            padding: 0.1rem 0.6rem;
+            border-radius: 0.5rem;
+        }
+
+        /* Anniversary Dual Row */
+        .anniversary-row {
+            display: flex;
+            gap: 1.2rem;
+            margin: 2rem 0;
+        }
+
+        .anniv-card {
+            flex: 1;
+            background: #ffffff;
+            border-radius: 1.4rem;
+            padding: 1.3rem;
+            text-align: center;
+            border: 1px solid #ebdcc5;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.02);
+            transition: transform 0.3s ease;
+        }
+
+        .anniv-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .anniv-label {
+            font-size: 0.85rem;
+            color: #a08048;
+            font-weight: 600;
+            margin-bottom: 0.4rem;
+        }
+
+        .anniv-number {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--emerald);
+        }
+
+        .landscape-frame {
+            width: 100%;
+            aspect-ratio: 1.6 / 1;
+            background: #e2d7c5;
+            border: 5px double var(--gold);
+            border-radius: 1.2rem;
+            overflow: hidden;
+            margin: 2rem 0 1.2rem;
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            position: relative;
+        }
+
+        .landscape-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .landscape-frame:hover img {
+            transform: scale(1.03);
+        }
+
+        .four-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin: 1.2rem 0 2rem;
+        }
+
+        .four-grid-item {
+            width: 100%;
+            aspect-ratio: 1/1;
+            border-radius: 1rem;
+            overflow: hidden;
+            border: 1px solid var(--gold);
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .four-grid-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .four-grid-item:hover img {
+            transform: scale(1.08);
+        }
+
+        /* Info Twins Panel */
+        .info-twins {
+            display: flex;
+            gap: 1.2rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        .info-card {
+            background: #ffffff;
+            padding: 1.4rem;
+            border-radius: 1.4rem;
+            flex: 1;
+            min-width: 280px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.02);
+            border: 1px solid #f0e4d2;
+            border-bottom: 3px solid var(--gold);
+        }
+
+        .info-card h4 {
+            color: var(--emerald);
+            border-left: 4px solid var(--gold);
+            padding-left: 0.8rem;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            font-size: 0.95rem;
+            border-bottom: 1px dotted #e2d5c3;
+        }
+
+        .info-row:last-child {
+            border-bottom: none;
+        }
+
+        .waz-master {
+            background: linear-gradient(135deg, #fdf8f0, #faf2e3);
+            border-radius: 1.8rem;
+            padding: 2rem;
+            margin: 2rem 0;
+            border: 1px solid #eedec3;
+        }
+
+        .waz-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--emerald);
+            border-right: 4px solid var(--gold);
+            padding-right: 1rem;
+            display: inline-block;
+            margin-bottom: 1.2rem;
+        }
+
+        .waz-content {
+            line-height: 1.85;
+            text-align: justify;
+            color: #3b3023;
+        }
+
+        .waz-content p {
+            margin-bottom: 1.1rem;
+        }
+
+        .hadith-quote {
+            background: #fff8eb;
+            padding: 1.2rem;
+            border-radius: 1.2rem;
+            margin: 1.2rem 0;
+            border-left: 4px solid var(--gold);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+        }
+
+        .parents-heart {
+            text-align: center;
+            background: linear-gradient(135deg, #f7eee1, #f2e4d0);
+            border-radius: 1.8rem;
+            padding: 1.6rem;
+            margin: 2rem 0;
+            border: 1px solid #e2cbab;
+        }
+
+        .final-ayah {
+            text-align: center;
+            padding-top: 1.8rem;
+            border-top: 1px solid var(--gold);
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--emerald);
+            line-height: 1.8;
+        }
+
+        /* Scroll Reveal Effect */
+        .reveal-block {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .reveal-block.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .lightbox-modal {
+            display: none;
+            position: fixed;
+            z-index: 100;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.88);
+            backdrop-filter: blur(5px);
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+        }
+
+        .lightbox-modal img {
+            max-width: 90%;
+            max-height: 85vh;
+            border-radius: 0.8rem;
+            border: 3px solid var(--gold);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+            object-fit: contain;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .lightbox-close:hover {
+            color: var(--gold);
+        }
+
+        .bottom-garden-container {
+            width: 100%;
+            position: relative;
+            margin-top: 2rem;
+            z-index: 3;
+            overflow: hidden;
+            line-height: 0;
+        }
+
+        #grass-canvas {
+            width: 100%;
+            height: 180px;
+            display: block;
+            pointer-events: auto;
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 768px) {
+            .memorial-wrapper {
+                padding: 1.5rem 1.1rem;
+                border-radius: 1.2rem;
+            }
+            .bismillah {
+                font-size: 1.7rem;
+            }
+            #live-time {
+                font-size: 2rem;
+            }
+            .anniversary-row {
+                flex-direction: column;
+            }
+            .four-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .info-twins {
+                flex-direction: column;
+            }
+            .elegy-block {
+                font-size: 1.15rem;
+            }
+            #grass-canvas {
+                height: 140px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Overlay Canvas for Flying Butterflies & Petals -->
+    <canvas id="fx-canvas"></canvas>
+
+    <div class="memorial-wrapper">
+        
+        <!-- Header -->
+        <div class="noble-header">
+            <div class="dua-symbol">🕋</div>
+            <div class="bismillah">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+            <div class="dua-symbol">🕌</div>
+        </div>
+
+        <!-- Live Time & Bangla Date -->
+        <div class="clock-elegant">
+            <div id="bangla-date">ডিজিটাল তারিখ রেন্ডার হচ্ছে...</div>
+            <div id="live-time">--:--:--</div>
+        </div>
+
+        <!-- Elegy Poem -->
+        <div class="elegy-block reveal-block">
+            “যে ফুল না ফুটতেই ঝরে গেল পৃথিবীর ধুলিকণায়,<br> সে সুবাস ছড়াবে আজ জান্নাতের বাগিচায়।”
+        </div>
+
+        <!-- Quote 1 -->
+        <div class="message-garden reveal-block">
+            <p style="text-align: center; font-weight: 500;">💔 “তোমাকে ছুঁতে না পারার হাহাকার আমাদের আজীবন থাকবে, কিন্তু আমাদের হৃদয়ে তুমি অমর হয়ে রইবে আনহু রহমান।” 💔</p>
+        </div>
+
+        <!-- Absence Timer -->
+        <div class="missing-counter reveal-block">
+            <div class="counter-title">আমাদের মাঝে নেই আজ</div>
+            <div id="absense-timer">গণনা চলছে...</div>
+        </div>
+
+        <!-- Anniversary Row -->
+        <div class="anniversary-row reveal-block">
+            <div class="anniv-card">
+                <div class="anniv-label">অতিক্রান্ত মৃত্যুবার্ষিকী</div>
+                <div class="anniv-number" id="passed-anniv">০ টি</div>
+            </div>
+            <div class="anniv-card">
+                <div class="anniv-label">পরবর্তী মৃত্যুবার্ষিকী বাকি</div>
+                <div class="anniv-number" id="next-anniv-countdown">-- দিন</div>
+            </div>
+        </div>
+
+        <div class="landscape-frame reveal-block" onclick="openLightbox('https://placehold.co/1200x850/1b4d3e/ffffff?text=%E0%A6%86%E0%A6%A8%E0%A6%B9%E0%A7%81+%E0%A6%B0%E0%A6%B9%E0%A6%AE%E0%A6%BE%E0%A6%A8')">
+            <img src="https://placehold.co/1200x850/1b4d3e/ffffff?text=%E0%A6%86%E0%A6%A8%E0%A6%B9%E0%A7%81+%E0%A6%B0%E0%A6%B9%E0%A6%AE%E0%A6%BE%E0%A6%A8" alt="আনহু রহমান" loading="lazy" onerror="this.src='https://placehold.co/1000x700/e2d7c5/382c20?text=Photo+Unavailable'">
+        </div>
+
+        <div class="four-grid reveal-block">
+            <div class="four-grid-item" onclick="openLightbox('https://placehold.co/600x600/2c6e59/ffffff?text=%E0%A6%9B%E0%A6%AC%E0%A6%BF+%E0%A7%AE')">
+                <img src="https://placehold.co/600x600/2c6e59/ffffff?text=%E0%A6%9B%E0%A6%AC%E0%A6%BF+%E0%A7%AE" alt="ছবি ১" loading="lazy" onerror="this.src='https://placehold.co/500x500/e2d7c5/382c20?text=Photo+1'">
+            </div>
+            <div class="four-grid-item" onclick="openLightbox('https://placehold.co/600x600/c5a059/ffffff?text=%E0%A6%9B%E0%A6%BC%E0%A6%AC%E0%A6%BF+%E0%A7%AF')">
+                <img src="https://placehold.co/600x600/c5a059/ffffff?text=%E0%A6%9B%E0%A6%BC%E0%A6%AC%E0%A6%BF+%E0%A7%AF" alt="ছবি ২" loading="lazy" onerror="this.src='https://placehold.co/500x500/e2d7c5/382c20?text=Photo+2'">
+            </div>
+            <div class="four-grid-item" onclick="openLightbox('https://placehold.co/600x600/1b4d3e/ffffff?text=%E0%A6%9B%E0%A6%AC%E0%A6%BF+%E0%A7%AA')">
+                <img src="https://placehold.co/600x600/1b4d3e/ffffff?text=%E0%A6%9B%E0%A6%BC%E0%A6%AC%E0%A6%BF+%E0%A7%AA" alt="ছবি ৩" loading="lazy" onerror="this.src='https://placehold.co/500x500/e2d7c5/382c20?text=Photo+3'">
+            </div>
+            <div class="four-grid-item" onclick="openLightbox('https://placehold.co/600x600/2c6e59/ffffff?text=%E0%A6%9B%E0%A6%AC%E0%A6%BF+%E0%A7%AB')">
+                <img src="https://placehold.co/600x600/2c6e59/ffffff?text=%E0%A6%9B%E0%A6%AC%E0%A6%BF+%E0%A7%AB" alt="ছবি ৪" loading="lazy" onerror="this.src='https://placehold.co/500x500/e2d7c5/382c20?text=Photo+4'">
+            </div>
+        </div>
+
+        <!-- Combined Messages -->
+        <div class="message-garden reveal-block">
+            <p>“অনাগত পৃথিবীর মায়ায় তুমি এলে না, রয়ে গেলে চিরদিনের এক অপূর্ণ ভালোবাসা হয়ে।”</p>
+            <p>পার্থিব এই পৃথিবীতে তোমার সফর ছিল মায়ের জঠর পর্যন্তই। মহান আল্লাহ তোমাকে জান্নাতুল ফেরদাউসের মেহমান হিসেবে কবুল করুন।</p>
+            <p>“তুমি এই পৃথিবীর ধুলিকণায় মাখতে পারোনি শরীর, তাই হয়তো মহান রব তোমাকে জান্নাতের ফুলের সুবাসে রাঙিয়ে দিয়েছেন। সেখানে তুমি শান্তিতে থেকো, সোনা।”</p>
+            <p>“আলহামদুলিল্লাহ, আল্লাহ তোমাকে এই নশ্বর পৃথিবীর কষ্ট থেকে মুক্ত রেখে নিজের সান্নিধ্যে ডেকে নিয়েছেন। সেখানে আমাদের সবার জন্য অপেক্ষা করো।”</p>
+            <p>“তুমি জান্নাতের পাখির মতো ডানা মেলে মহান রবের সান্নিধ্যে উড়ে গেছ। সেখানে মহান আল্লাহ তোমাকে শান্তিতে এবং নিরাপদে রাখুন।”</p>
+            <p>“মহান আল্লাহর আমানত মহান আল্লাহর কাছে ফিরে গেছে। সেখানে আমাদের এই ছোট্ট জান্নাতীকে মহান আল্লাহ তাঁর অনুগ্রহে ঢেকে দিন এবং আমাদের জন্য সুপারিশকারী করুন।”</p>
+            <p>“এই পৃথিবী অনেক কঠিন আর তুমি ছিলে অনেক কোমল, তাই আল্লাহ তাঁর প্রিয় জান্নাতে নিয়ে গেছেন। ইনশাআল্লাহ, আখেরাতে আমরা আবার মিলিত হব।”</p>
+        </div>
+
+        <div class="info-twins reveal-block">
+            <div class="info-card">
+                <h4>🌸 আগমনী বার্তা 🌸</h4>
+                <div class="info-row"><span>ইংরেজি তারিখ</span><span>১০ আগস্ট ২০২৫</span></div>
+                <div class="info-row"><span>বাংলা তারিখ</span><span>২৬শে শ্রাবণ, ১৪৩২</span></div>
+                <div class="info-row"><span>আরবি তারিখ</span><span>১৫ই সফর, ১৪৪৭ হিজরি</span></div>
+                <div class="info-row"><span>সময়</span><span>সকাল ১০:১৭ মিনিট</span></div>
+                <div class="info-row"><span>বার</span><span>রবিবার</span></div>
+            </div>
+            <div class="info-card">
+                <h4>🌸 বিদায় বেলা 🌸</h4>
+                <div class="info-row"><span>ইংরেজি তারিখ</span><span>২৯ এপ্রিল ২০২৬ ইং</span></div>
+                <div class="info-row"><span>বাংলা তারিখ</span><span>১৬ই বৈশাখ, ১৪৩৩ বঙ্গাব্দ</span></div>
+                <div class="info-row"><span>আরবি তারিখ</span><span>১১ই জিলকদ, ১৪৪৭ হিজরি</span></div>
+                <div class="info-row"><span>সময়</span><span>দুপুর ২:৪৬ মিনিট</span></div>
+                <div class="info-row"><span>বার ও ওজন</span><span>বুধবার, ৩ কেজি ১০০ গ্রাম</span></div>
+            </div>
+        </div>
+
+        <!-- Waz & Reminders -->
+        <div class="waz-master reveal-block">
+            <div class="waz-title">সন্তান বিয়োগে ধৈর্যের প্রতিদান ও জান্নাতের সুসংবাদ</div>
+            <div class="waz-content">
+                <p><strong>হামদ ও সানা:</strong> সকল প্রশংসা মহান রাব্বুল আলামীনের, যিনি জীবন ও মৃত্যুর মালিক। দরুদ ও সালাম বর্ষিত হোক মানবতার মুক্তির দূত প্রিয় নবী মুহাম্মদ (সা.)-এর ওপর।</p>
+                <p><strong>পরীক্ষা ও ধৈর্য:</strong> হে শোকাতুর মুমিন ভাই ও বোনেরা, দুনিয়া হলো মুমিনের জন্য পরীক্ষাগার। মহান আল্লাহ পবিত্র কুরআনে এরশাদ করেছেন, <em>“আমি অবশ্যই তোমাদের পরীক্ষা করব কিছুটা ভয়, ক্ষুধা, মাল ও জানের ক্ষতি এবং ফল-ফসলের বিনষ্টের মাধ্যমে। তবে সুসংবাদ দাও ধৈর্যশীলদের।”</em> (সূরা বাকারা: ১৫৫)</p>
+                <p><strong>জান্নাতের প্রজাপতি:</strong> আপনার কলিজার টুকরো আনহু রহমান এই দুনিয়ার কোনো পঙ্কিলতা স্পর্শ করার আগেই জান্নাতের পাখি হয়ে উড়ে গেছে। হাদিস শরীফে এসেছে, ঈমানদারদের যেসব সন্তান ছোটবেলায় মারা যায়, তারা জান্নাতে হযরত ইব্রাহিম (আ.)-এর তত্ত্বাবধানে থাকে। কিয়ামতের কঠিন ময়দানে এই শিশুরাই তাদের পিতা-মাতার হাত ধরে জান্নাতে নিয়ে যাওয়ার জন্য আল্লাহর কাছে বায়না ধরবে।</p>
+                <div class="hadith-quote">
+                    🌟 <strong>বাইতুল হামদ বা প্রশংসার ঘর:</strong> রাসূলুল্লাহ (সা.) বলেছেন, যখন কোনো বান্দার সন্তান মারা যায় এবং সে সবর করে, আল্লাহ ফেরেশতাদের নির্দেশ দেন, “জান্নাতে আমার এই বান্দার জন্য একটি ঘর নির্মাণ করো এবং তার নাম রাখো ‘বাইতুল হামদ’ (প্রশংসার ঘর)।” (তিরমিজি)
+                </div>
+                <p><strong>আমানত ও প্রত্যাবর্তন:</strong> “আমরা তো আল্লাহরই এবং নিশ্চিতভাবে তাঁরই দিকে আমাদের প্রত্যাবর্তন।” আপনার আদরের আনহু রহমান আল্লাহর পক্ষ থেকে আসা এক পবিত্র আমানত ছিল, যা তিনি অত্যন্ত ভালোবাসতেন বলেই তাঁর কাছে ফিরিয়ে নিয়েছেন।</p>
+                <p><strong>জান্নাতের ফুল:</strong> দুনিয়ার ধূলিময় পরিবেশে আসার আগেই আল্লাহ তাকে জান্নাতের পবিত্রতম বাগিচায় স্থান দিয়েছেন। সেখানে সে ইব্রাহিম (আ.)-এর তত্ত্বাবধানে সুরক্ষিত আছে এবং কিয়ামতের দিন তার পিতা-মাতাকে নিয়ে জান্নাতে প্রবেশের জন্য আল্লাহর কাছে জেদ করবে।</p>
+                <p><strong>শোকের বিনিময়ে জান্নাত:</strong> যে ব্যক্তি তার প্রিয় সন্তানকে হারিয়ে সবর ধারণ করে এবং আল্লাহর ওপর সন্তুষ্ট থাকে, আল্লাহ তার জন্য জান্নাতে 'বাইতুল হামদ' নির্মাণ করেন।</p>
+                <p><strong>সান্ত্বনা:</strong> বাহ্যিক দৃষ্টিতে এটি একটি বিচ্ছেদ মনে হলেও, মুমিনের কাছে এটি একটি বিনিয়োগ। আপনি আপনার আমানতকে আল্লাহর কাছে গচ্ছিত রেখেছেন। দুনিয়ার এই ক্ষণস্থায়ী জীবনে তাকে না পেলেও, ইনশাআল্লাহ জান্নাতের চিরস্থায়ী সুখের নীড়ে আপনারা আবার মিলিত হবেন।</p>
+                <p style="font-weight: 600; color: var(--emerald);">হে আল্লাহ! আপনি আনহু রহমান-কে জান্নাতে উচ্চ মাকাম দান করুন এবং তার পিতা মোঃ হাফিজুর রহমান ও মাতা মোছাঃ দিলারা খাতুন-কে উত্তম ধৈর্য ধারণ করার তৌফিক দান করুন। আমীন।</p>
+            </div>
+        </div>
+
+        <!-- Bereaved Parents -->
+        <div class="parents-heart reveal-block">
+            <div style="color: #a08048; font-weight: 600; font-size: 0.95rem;">শোকার্ত পিতা-মাতা</div>
+            <div style="font-size: 1.6rem; font-weight: 700; color: var(--emerald); margin-top: 0.3rem;">মোঃ হাফিজুর রহমান ও মোছাঃ দিলারা খাতুন</div>
+        </div>
+
+        <!-- Final Ayah -->
+        <div class="final-ayah reveal-block">
+            “ إِنَّا لِلَّهِ وَإِنَّا إِلَيْهِ رَاجِعُونَ ” <br>
+            <span style="font-size: 0.95rem; color: #5a4b3c;">নিশ্চয়ই আমরা আল্লাহর জন্য এবং নিশ্চয়ই আমরা তাঁরই নিকট প্রত্যাবর্তনকারী।</span><br>
+            <span style="font-size: 0.85rem; color: var(--gold); font-weight: 600;">আনহু রহমান • জান্নাতুল ফেরদাউসের মেহমান</span>
+        </div>
+
+    </div>
+
+    <div class="bottom-garden-container">
+        <canvas id="grass-canvas"></canvas>
+    </div>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox-modal" onclick="closeLightbox()">
+        <span class="lightbox-close">&times;</span>
+        <img id="lightbox-img" src="" alt="Enlarged Image">
+    </div>
+
+    <script>
+        // Helper: English Digits to Bengali Digits Convertor
+        function toBengaliNumerals(num) {
+            const bnDigits = ['০', '১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯'];
+            return num.toString().replace(/\d/g, (x) => bnDigits[x]);
+        }
+
+        // Lightbox Functions
+        function openLightbox(src) {
+            const lightbox = document.getElementById('lightbox');
+            const img = document.getElementById('lightbox-img');
+            img.src = src;
+            lightbox.style.display = 'flex';
+        }
+        function closeLightbox() {
+            document.getElementById('lightbox').style.display = 'none';
+        }
+
+        // Scroll Reveal Animation Initialization
+        const observerOptions = { threshold: 0.1 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal-block').forEach(el => observer.observe(el));
+
+        // Date & Timer Logic
+        (function() {
+            const deathMoment = new Date(2026, 3, 29, 14, 46, 0); // April 29, 2026, 14:46
+
+            const banglaDateEl = document.getElementById('bangla-date');
+            const liveTimeEl = document.getElementById('live-time');
+            const absenseTimerEl = document.getElementById('absense-timer');
+            const passedAnnivEl = document.getElementById('passed-anniv');
+            const nextAnnivCountdown = document.getElementById('next-anniv-countdown');
+
+            function updateLiveClock() {
+                const now = new Date();
+                const dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+                banglaDateEl.innerText = now.toLocaleDateString('bn-BD', dateOptions);
+                liveTimeEl.innerText = now.toLocaleTimeString('bn-BD', { hour12: true, hour: '2-digit', minute:'2-digit', second:'2-digit' });
+            }
+
+            function getPreciseDiff(from, to) {
+                let years = to.getFullYear() - from.getFullYear();
+                let months = to.getMonth() - from.getMonth();
+                let days = to.getDate() - from.getDate();
+                let hours = to.getHours() - from.getHours();
+                let minutes = to.getMinutes() - from.getMinutes();
+                let seconds = to.getSeconds() - from.getSeconds();
+
+                if (seconds < 0) { seconds += 60; minutes--; }
+                if (minutes < 0) { minutes += 60; hours--; }
+                if (hours < 0) { hours += 24; days--; }
+                if (days < 0) {
+                    let lastMonthDate = new Date(to.getFullYear(), to.getMonth(), 0);
+                    days += lastMonthDate.getDate();
+                    months--;
+                }
+                if (months < 0) { months += 12; years--; }
+                return { years, months, days, hours, minutes, seconds };
+            }
+
+            function getPassedAnniversary(now, death) {
+                let currentYear = now.getFullYear();
+                let thisYearAnn = new Date(currentYear, death.getMonth(), death.getDate(), death.getHours(), death.getMinutes(), death.getSeconds());
+                let passed = currentYear - death.getFullYear();
+                if (now < thisYearAnn) passed--;
+                return passed < 0 ? 0 : passed;
+            }
+
+            function getNextAnniversaryRemaining(now, death) {
+                let next = new Date(now.getFullYear(), death.getMonth(), death.getDate(), death.getHours(), death.getMinutes(), death.getSeconds());
+                if (now > next) next.setFullYear(now.getFullYear() + 1);
+                let diffMs = next - now;
+                if (diffMs <= 0) return "০ দিন";
+                const totalSec = Math.floor(diffMs / 1000);
+                const days = Math.floor(totalSec / 86400);
+                const hours = Math.floor((totalSec % 86400) / 3600);
+                const minutes = Math.floor((totalSec % 3600) / 60);
+                const seconds = totalSec % 60;
+                return `${toBengaliNumerals(days)} দিন, ${toBengaliNumerals(hours)} ঘণ্টা, ${toBengaliNumerals(minutes)} মিনিট, ${toBengaliNumerals(seconds)} সেকেন্ড`;
+            }
+
+            function renderAllTimer() {
+                const now = new Date();
+                updateLiveClock();
+
+                if (now < deathMoment) {
+                    absenseTimerEl.innerHTML = `<span style="color:#a08048;">আল্লাহর ইচ্ছায় আগমনী অপেক্ষা...</span>`;
+                } else {
+                    const diff = getPreciseDiff(deathMoment, now);
+                    absenseTimerEl.innerHTML = `<span class="time-num">${toBengaliNumerals(diff.years)}</span> বছর <span class="time-num">${toBengaliNumerals(diff.months)}</span> মাস 
+                                                <span class="time-num">${toBengaliNumerals(diff.days)}</span> দিন <br> 
+                                                <span class="time-num">${toBengaliNumerals(diff.hours)}</span> ঘণ্টা <span class="time-num">${toBengaliNumerals(diff.minutes)}</span> মিনিট 
+                                                <span class="time-num">${toBengaliNumerals(diff.seconds)}</span> সেকেন্ড`;
+                }
+
+                if (now >= deathMoment) {
+                    let passed = getPassedAnniversary(now, deathMoment);
+                    passedAnnivEl.innerText = toBengaliNumerals(passed) + " টি";
+                } else {
+                    passedAnnivEl.innerText = "০ টি";
+                }
+
+                if (now >= deathMoment) {
+                    nextAnnivCountdown.innerText = getNextAnniversaryRemaining(now, deathMoment);
+                } else {
+                    let firstAnnDate = new Date(deathMoment.getFullYear(), deathMoment.getMonth(), deathMoment.getDate(), deathMoment.getHours(), deathMoment.getMinutes());
+                    let diffMs = firstAnnDate - now;
+                    if (diffMs > 0) {
+                        const d = Math.floor(diffMs / 86400000);
+                        const h = Math.floor((diffMs % 86400000) / 3600000);
+                        const m = Math.floor((diffMs % 3600000) / 60000);
+                        const s = Math.floor((diffMs % 60000) / 1000);
+                        nextAnnivCountdown.innerText = `${toBengaliNumerals(d)} দিন, ${toBengaliNumerals(h)}:${toBengaliNumerals(m)}:${toBengaliNumerals(s)}`;
+                    } else {
+                        nextAnnivCountdown.innerText = "আসন্ন";
+                    }
+                }
+            }
+
+            setInterval(renderAllTimer, 1000);
+            renderAllTimer();
+        })();
+
+        (function initFXCanvas() {
+            const canvas = document.getElementById('fx-canvas');
+            const ctx = canvas.getContext('2d');
+            let w, h;
+
+            function resize() {
+                w = canvas.width = window.innerWidth;
+                h = canvas.height = window.innerHeight;
+            }
+            window.addEventListener('resize', resize);
+            resize();
+
+            // Falling Petals System
+            const petals = [];
+            const petalCount = 18;
+
+            for (let i = 0; i < petalCount; i++) {
+                petals.push({
+                    x: Math.random() * w,
+                    y: Math.random() * h,
+                    size: Math.random() * 8 + 6,
+                    speedY: Math.random() * 1.2 + 0.6,
+                    speedX: Math.random() * 1 - 0.5,
+                    angle: Math.random() * 360,
+                    spin: Math.random() * 2 - 1,
+                    opacity: Math.random() * 0.5 + 0.3
+                });
+            }
+
+            // Realistic Flying Air Butterflies
+            const airButterflies = [];
+            const airBfCount = 6;
+            const bfColors = ['#e67e22', '#f1c40f', '#3498db', '#e74c3c', '#9b59b6'];
+
+            for (let i = 0; i < airBfCount; i++) {
+                airButterflies.push({
+                    x: Math.random() * w,
+                    y: Math.random() * h,
+                    size: Math.random() * 6 + 10,
+                    color: bfColors[i % bfColors.length],
+                    vx: (Math.random() - 0.5) * 1.8,
+                    vy: (Math.random() - 0.5) * 1.8,
+                    wingAngle: 0,
+                    wingSpeed: Math.random() * 0.15 + 0.15,
+                    targetX: Math.random() * w,
+                    targetY: Math.random() * h
+                });
+            }
+
+            function drawPetal(p) {
+                ctx.save();
+                ctx.translate(p.x, p.y);
+                ctx.rotate((p.angle * Math.PI) / 180);
+                ctx.globalAlpha = p.opacity;
+
+                ctx.beginPath();
+                ctx.fillStyle = '#e74c3c';
+                ctx.moveTo(0, 0);
+                ctx.bezierCurveTo(-p.size, -p.size, -p.size * 1.5, p.size / 2, 0, p.size * 1.5);
+                ctx.bezierCurveTo(p.size * 1.5, p.size / 2, p.size, -p.size, 0, 0);
+                ctx.fill();
+
+                ctx.restore();
+            }
+
+            function drawButterfly(bf) {
+                ctx.save();
+                ctx.translate(bf.x, bf.y);
+                
+                let angle = Math.atan2(bf.vy, bf.vx);
+                ctx.rotate(angle + Math.PI / 2);
+
+                let wingScale = Math.sin(bf.wingAngle);
+
+                // Left Wing
+                ctx.save();
+                ctx.scale(wingScale, 1);
+                ctx.beginPath();
+                ctx.fillStyle = bf.color;
+                ctx.ellipse(-bf.size * 0.7, -bf.size * 0.3, bf.size, bf.size * 0.6, Math.PI / 4, 0, Math.PI * 2);
+                ctx.ellipse(-bf.size * 0.5, bf.size * 0.4, bf.size * 0.7, bf.size * 0.4, -Math.PI / 4, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.restore();
+
+                // Right Wing
+                ctx.save();
+                ctx.scale(-wingScale, 1);
+                ctx.beginPath();
+                ctx.fillStyle = bf.color;
+                ctx.ellipse(-bf.size * 0.7, -bf.size * 0.3, bf.size, bf.size * 0.6, Math.PI / 4, 0, Math.PI * 2);
+                ctx.ellipse(-bf.size * 0.5, bf.size * 0.4, bf.size * 0.7, bf.size * 0.4, -Math.PI / 4, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.restore();
+
+                // Butterfly Body
+                ctx.beginPath();
+                ctx.fillStyle = '#2c3e50';
+                ctx.ellipse(0, 0, bf.size * 0.15, bf.size * 0.8, 0, 0, Math.PI * 2);
+                ctx.fill();
+
+                ctx.restore();
+            }
+
+            function animateFX() {
+                ctx.clearRect(0, 0, w, h);
+
+                // Update & Render Petals
+                petals.forEach(p => {
+                    p.y += p.speedY;
+                    p.x += Math.sin(p.y * 0.02) + p.speedX;
+                    p.angle += p.spin;
+
+                    if (p.y > h + 20) {
+                        p.y = -20;
+                        p.x = Math.random() * w;
+                    }
+                    drawPetal(p);
+                });
+
+                // Update & Render Flying Butterflies
+                airButterflies.forEach(bf => {
+                    bf.wingAngle += bf.wingSpeed;
+
+                    let dx = bf.targetX - bf.x;
+                    let dy = bf.targetY - bf.y;
+                    let dist = Math.sqrt(dx * dx + dy * dy);
+
+                    if (dist < 30 || Math.random() < 0.01) {
+                        bf.targetX = Math.random() * w;
+                        bf.targetY = Math.random() * h;
+                    }
+
+                    bf.vx += (dx / dist) * 0.08;
+                    bf.vy += (dy / dist) * 0.08;
+
+                    bf.vx *= 0.96;
+                    bf.vy *= 0.96;
+
+                    bf.x += bf.vx;
+                    bf.y += bf.vy;
+
+                    drawButterfly(bf);
+                });
+
+                requestAnimationFrame(animateFX);
+            }
+
+            animateFX();
+        })();
+
+        (function initGrassCanvas() {
+            const canvas = document.getElementById('grass-canvas');
+            const ctx = canvas.getContext('2d');
+            let gw, gh;
+
+            function resizeGrass() {
+                gw = canvas.width = canvas.parentElement.clientWidth;
+                gh = canvas.height = canvas.parentElement.clientHeight || 160;
+            }
+            window.addEventListener('resize', resizeGrass);
+            resizeGrass();
+
+            // Generate Grass Blades
+            const blades = [];
+            const bladeCount = Math.floor(gw / 3);
+
+            for (let i = 0; i < bladeCount; i++) {
+                blades.push({
+                    x: i * 3.5 + Math.random() * 2,
+                    height: Math.random() * 50 + gh * 0.45,
+                    curve: Math.random() * 20 - 10,
+                    width: Math.random() * 3 + 2,
+                    color: i % 2 === 0 ? '#1b4d3e' : '#276e57'
+                });
+            }
+
+            // Generate Flowers in Grass
+            const flowers = [];
+            const flowerCount = Math.floor(gw / 65) + 3;
+
+            const flowerColors = ['#ffffff', '#f1c40f', '#e74c3c', '#9b59b6', '#ff9ff3'];
+
+            for (let i = 0; i < flowerCount; i++) {
+                flowers.push({
+                    x: (gw / flowerCount) * i + Math.random() * 30,
+                    y: gh - (Math.random() * 35 + 30),
+                    petalColor: flowerColors[i % flowerColors.length],
+                    size: Math.random() * 4 + 7
+                });
+            }
+
+            // Butterflies that Land on Flowers
+            const landingButterflies = [];
+            const landedBfCount = Math.min(4, flowers.length);
+
+            for (let i = 0; i < landedBfCount; i++) {
+                let targetFlower = flowers[i % flowers.length];
+                landingButterflies.push({
+                    x: Math.random() * gw,
+                    y: Math.random() * (gh / 2),
+                    targetFlower: targetFlower,
+                    state: 'FLYING', // 'FLYING' or 'LANDED'
+                    landTimer: 0,
+                    wingAngle: 0,
+                    wingSpeed: 0.2,
+                    color: flowerColors[(i + 2) % flowerColors.length],
+                    size: 8
+                });
+            }
+
+            function drawFlower(fl) {
+                ctx.save();
+                ctx.translate(fl.x, fl.y);
+
+                // Stem
+                ctx.beginPath();
+                ctx.strokeStyle = '#276e57';
+                ctx.lineWidth = 2;
+                ctx.moveTo(0, 0);
+                ctx.lineTo(0, gh - fl.y);
+                ctx.stroke();
+
+                // Petals
+                ctx.fillStyle = fl.petalColor;
+                for (let a = 0; a < Math.PI * 2; a += Math.PI / 3) {
+                    let px = Math.cos(a) * fl.size;
+                    let py = Math.sin(a) * fl.size;
+                    ctx.beginPath();
+                    ctx.arc(px, py, fl.size * 0.6, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+
+                // Flower Center
+                ctx.beginPath();
+                ctx.fillStyle = '#f39c12';
+                ctx.arc(0, 0, fl.size * 0.5, 0, Math.PI * 2);
+                ctx.fill();
+
+                ctx.restore();
+            }
+
+            function drawLandedButterfly(bf) {
+                ctx.save();
+                ctx.translate(bf.x, bf.y);
+
+                let wingScale = Math.sin(bf.wingAngle);
+
+                // Wings
+                ctx.fillStyle = bf.color;
+                
+                ctx.save();
+                ctx.scale(wingScale, 1);
+                ctx.beginPath();
+                ctx.arc(-bf.size * 0.6, -bf.size * 0.4, bf.size * 0.8, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.restore();
+
+                ctx.save();
+                ctx.scale(-wingScale, 1);
+                ctx.beginPath();
+                ctx.arc(-bf.size * 0.6, -bf.size * 0.4, bf.size * 0.8, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.restore();
+
+                // Body
+                ctx.fillStyle = '#2c3e50';
+                ctx.fillRect(-1, -bf.size, 2, bf.size * 1.5);
+
+                ctx.restore();
+            }
+
+            let wind = 0;
+            function animateGrass() {
+                ctx.clearRect(0, 0, gw, gh);
+                wind += 0.03;
+
+                // Draw Flowers First
+                flowers.forEach(drawFlower);
+
+                // Draw Grass Blades
+                blades.forEach(b => {
+                    ctx.beginPath();
+                    ctx.fillStyle = b.color;
+                    let bend = Math.sin(wind + b.x * 0.05) * 8 + b.curve;
+                    ctx.moveTo(b.x, gh);
+                    ctx.quadraticCurveTo(b.x + bend * 0.5, gh - b.height * 0.5, b.x + bend, gh - b.height);
+                    ctx.quadraticCurveTo(b.x + b.width + bend * 0.5, gh - b.height * 0.5, b.x + b.width, gh);
+                    ctx.fill();
+                });
+
+                // Update & Render Landing/Sitting Butterflies
+                landingButterflies.forEach(bf => {
+                    if (bf.state === 'FLYING') {
+                        bf.wingAngle += bf.wingSpeed;
+                        let dx = bf.targetFlower.x - bf.x;
+                        let dy = (bf.targetFlower.y - 10) - bf.y;
+                        let dist = Math.sqrt(dx * dx + dy * dy);
+
+                        if (dist < 5) {
+                            bf.state = 'LANDED';
+                            bf.x = bf.targetFlower.x;
+                            bf.y = bf.targetFlower.y - 10;
+                            bf.landTimer = Math.random() * 200 + 100; // Stay landed for a while
+                        } else {
+                            bf.x += (dx / dist) * 1.2;
+                            bf.y += (dy / dist) * 1.2;
+                        }
+                    } else if (bf.state === 'LANDED') {
+                        bf.wingAngle += 0.03; // Slow wing flutter when sitting
+                        bf.landTimer--;
+
+                        if (bf.landTimer <= 0) {
+                            bf.state = 'FLYING';
+                            let randomFlower = flowers[Math.floor(Math.random() * flowers.length)];
+                            bf.targetFlower = randomFlower;
+                        }
+                    }
+
+                    drawLandedButterfly(bf);
+                });
+
+                requestAnimationFrame(animateGrass);
+            }
+
+            animateGrass();
+        })();
+    </script>
+</body>
+</html>
